@@ -1,0 +1,31 @@
+<div class="container">
+    <h1>Add Pet</h1>
+  
+    <form (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="name">Pet Name </label>
+        <input type="text" id="name" [(ngModel)]="pet.name" name="name" required class="form-control">
+      </div>
+  
+      <div class="form-group">
+        <label for="petType">Pet Type </label>
+        <select id="petType" [(ngModel)]="pet.petType" name="petType" required class="form-control">
+          <option *ngFor="let type of petTypes" [value]="type.id">{{ type.typeName }}</option>
+        </select>
+      </div>
+  
+      <div class="form-group">
+        <label for="dateMissing">Date Missing </label>
+        <input type="date" id="dateMissing" [(ngModel)]="pet.dateMissing" name="dateMissing" required class="form-control">
+      </div>
+  
+      <div class="form-group">
+        <label for="ownerContactInfo">Owner Contact Info </label>
+        <input type="text" id="ownerContactInfo" [(ngModel)]="pet.ownerContactInfo" name="ownerContactInfo" required class="form-control">
+      </div>
+  
+      <button type="submit" class="btn btn-primary">Add Pet</button>
+      <button type="button" class="btn btn-primary" (click)="OnCancel()" >View Pet List</button>
+    </form>
+  </div>
+  

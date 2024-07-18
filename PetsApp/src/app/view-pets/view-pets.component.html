@@ -1,0 +1,26 @@
+<div class="container">
+  <header>
+    <h1>View Pets</h1>
+    <button class="btn" *ngIf="!isLoggedIn()" (click)="onLogin()">Login</button>
+    <span *ngIf="isLoggedIn()" class="user-info">Logged in as: {{ getUsername() }}</span>
+    <button class="btn" *ngIf="isLoggedIn()" (click)="onAddMissingPet()">Add Missing Pet</button>
+    <button class="btn" *ngIf="isLoggedIn()" (click)="onLogOut()">Log Out</button>
+  </header>
+
+  <div class="filter">
+    <label for="petType">Filter by Pet Type:</label>
+    <select id="petType" [(ngModel)]="selectedPetType" (change)="onPetTypeChange()">
+      <option value="">All</option>
+      <option *ngFor="let type of petTypes" [value]="type.id">{{ type.typeName }}</option>
+    </select>
+  </div>
+
+  <div class="pets-grid">
+    <div *ngFor="let pet of filteredPets" class="pet-card">
+      <h2>{{ pet.name }}</h2>
+      <p><strong>Type:</strong> {{ getPetTypeName(pet.petType.toString()) }}</p>
+      <p><strong>Date Missing:</strong> {{ formatDate(pet.dateMissing) }}</p>
+      <p><strong>Owner Contact Info:</strong> {{ pet.ownerContactInfo }}</p>
+    </div>
+  </div>
+</div>
