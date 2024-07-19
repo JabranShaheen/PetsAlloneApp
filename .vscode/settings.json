@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/0ec9509c-402a-45bd-9b78-84e9bd8bbd1f/resourceGroups/BT/providers/Microsoft.Web/sites/PetsAlone",
+    "appService.deploySubpath": "dist"
+}
